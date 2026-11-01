@@ -20,6 +20,13 @@ Deno.test("parseWorkflowRef", async (t) => {
       "refs/heads/main",
     );
   });
+  await t.step("names with dots", () => {
+    assertEquals(
+      parseWorkflowRef("my.org/.server/.github/workflows/securefix.yaml@main")
+        .repo,
+      ".server",
+    );
+  });
   await t.step(".yml and @ in the ref", () => {
     assertEquals(
       parseWorkflowRef("foo/server/.github/workflows/securefix.yml@feat@1"),
@@ -44,6 +51,11 @@ Deno.test("parseWorkflowRef", async (t) => {
         "foo/server/.github/workflows/securefix.json@main",
         "foo/server/.github/workflows/securefix.yaml@main branch",
         "foo/server/.github/workflows/securefix.yaml@0123456789abcdef0123456789abcdef01234567",
+        "../../.github/workflows/securefix.yaml@main",
+        "./server/.github/workflows/securefix.yaml@main",
+        "foo/.../.github/workflows/securefix.yaml@main",
+        "fo o/server/.github/workflows/securefix.yaml@main",
+        "foo/ser%2Fver/.github/workflows/securefix.yaml@main",
       ]
     ) {
       assertThrows(() => parseWorkflowRef(s), Error, undefined, s);

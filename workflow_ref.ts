@@ -22,10 +22,14 @@ export type WorkflowRun = {
   url: string;
 };
 
+// Owner and repository names consist of alphanumerics, "-", "_", and ".".
 // The ref can contain "@" because git allows it in branch names,
 // but it can't contain whitespace.
 const workflowRefPattern =
-  /^([^/@\s]+)\/([^/@\s]+)\/\.github\/workflows\/([^/@\s]+\.ya?ml)@(\S+)$/;
+  /^([A-Za-z0-9_.-]+)\/([A-Za-z0-9_.-]+)\/\.github\/workflows\/([^/@\s]+\.ya?ml)@(\S+)$/;
+
+// "." and ".." would change the path of the API request.
+const dotsOnlyPattern = /^\.+$/;
 
 const commitSHAPattern = /^[0-9a-f]{40}$/i;
 
@@ -41,6 +45,11 @@ export const parseWorkflowRef = (s: string): WorkflowRef => {
   if (!m) {
     throw new Error(
       `a workflow ref must be in the format <owner>/<repo>/.github/workflows/<workflow file>@<branch or tag>, got ${s}`,
+    );
+  }
+  if (dotsOnlyPattern.test(m[1]) || dotsOnlyPattern.test(m[2])) {
+    throw new Error(
+      `the owner and repository of a workflow ref must not consist of only dots: ${s}`,
     );
   }
   if (commitSHAPattern.test(m[4])) {

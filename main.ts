@@ -67,22 +67,41 @@ export const dispatch = async (
   });
   // Without this the token would appear in the workflow log.
   core.setSecret(token.token);
+  // The client inherits the proxy setting and the base URL on GitHub
+  // Enterprise Server, so the token is revoked through it as well.
+  const octokit = github.getOctokit(token.token);
   try {
-    return await createWorkflowDispatch(
-      github.getOctokit(token.token),
-      ref,
-      inputs.inputs,
-    );
+    return await createWorkflowDispatch(octokit, ref, inputs.inputs);
   } finally {
     // The request is sent, so the token has done its job either way.
-    if (githubAppToken.hasExpired(token.expiresAt)) {
-      core.info("skip revoking GitHub App token as it has already expired");
-    } else {
-      core.info("revoking GitHub App token");
-      await githubAppToken.revoke(token.token, {
-        baseUrl: github.context.apiUrl,
-      });
-    }
+    await revoke(octokit, token);
+  }
+};
+
+/**
+ * Revokes the token without throwing.
+ *
+ * A failure to revoke mustn't hide the result of the dispatch: the server
+ * workflow may already be running, and a caller that retries would run it
+ * again. The token expires in an hour anyway.
+ */
+const revoke = async (
+  octokit: ReturnType<typeof github.getOctokit>,
+  token: githubAppToken.Token,
+): Promise<void> => {
+  if (githubAppToken.hasExpired(token.expiresAt)) {
+    core.info("skip revoking GitHub App token as it has already expired");
+    return;
+  }
+  core.info("revoking GitHub App token");
+  try {
+    await octokit.rest.apps.revokeInstallationAccessToken();
+  } catch (error) {
+    core.warning(
+      `failed to revoke GitHub App token: ${
+        error instanceof Error ? error.message : JSON.stringify(error)
+      }`,
+    );
   }
 };
 
