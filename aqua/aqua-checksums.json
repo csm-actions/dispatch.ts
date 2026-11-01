@@ -1,0 +1,94 @@
+{
+  "checksums": [
+    {
+      "id": "github_release/github.com/denoland/deno/v2.9.8/deno-aarch64-apple-darwin.zip",
+      "checksum": "9F0BF660393DA2EAFF044CDC7444CB08C73F235849B61D224D825A194CE7C98E",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/denoland/deno/v2.9.8/deno-aarch64-unknown-linux-gnu.zip",
+      "checksum": "D49596C20B9788CF8F5D8DDF644103D4BDE56ED239753F0BDB92BA9361D51905",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/denoland/deno/v2.9.8/deno-x86_64-apple-darwin.zip",
+      "checksum": "4B2F5EDD2639B7470F034238B321D7002D8DFB4726D8558F52C17AFAC370EB2C",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/denoland/deno/v2.9.8/deno-x86_64-pc-windows-msvc.zip",
+      "checksum": "CBA84B26E0DF5AE7F74FC66B86A95B866872A86292EBD84FA1E959927EDD93BF",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/denoland/deno/v2.9.8/deno-x86_64-unknown-linux-gnu.zip",
+      "checksum": "E890975BC2549807BBCC0B584FFAFDA72CC7C93349DD99C80483DD784F6C4609",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/suzuki-shunsuke/ghalint/v1.6.0/ghalint_1.6.0_darwin_amd64.tar.gz",
+      "checksum": "0B5CEDA34753D74B6FD024BA6306FA332CD03C855801430BD7CBD44A94692252",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/suzuki-shunsuke/ghalint/v1.6.0/ghalint_1.6.0_darwin_arm64.tar.gz",
+      "checksum": "427ACB85CB6CDDA8828BF46643825B47CB46E6D2D5D3FA4F60B7BDFEE194D2C7",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/suzuki-shunsuke/ghalint/v1.6.0/ghalint_1.6.0_linux_amd64.tar.gz",
+      "checksum": "EDA1AF79C1A4A31C2DE5831CD1333AD582FA6FA72015F8E9C1C4525D550C1D35",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/suzuki-shunsuke/ghalint/v1.6.0/ghalint_1.6.0_linux_arm64.tar.gz",
+      "checksum": "F9D8E20A75C934D21EE6AB1967EB79FA125237EF5633C6BFD03B27999C6A6CDA",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/suzuki-shunsuke/ghalint/v1.6.0/ghalint_1.6.0_windows_amd64.zip",
+      "checksum": "9119FAAB7BAD322F1FE3895DA456846D780E84CC5E98405493B8E86AE03F215F",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/suzuki-shunsuke/ghalint/v1.6.0/ghalint_1.6.0_windows_arm64.zip",
+      "checksum": "1AC87F983A49C4E4241217EEB7BEB3B5CF9AAEDEE8D3BE7DA896232E8F39391C",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/suzuki-shunsuke/nllint/v1.2.1/nllint_darwin_amd64.tar.gz",
+      "checksum": "4DEB02933BA8BA7DD7E1744ED8FF4577458B1614410FF131A54A477A44149410",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/suzuki-shunsuke/nllint/v1.2.1/nllint_darwin_arm64.tar.gz",
+      "checksum": "24F5DD3C456FF7ED601122BA7B510011CAFB0FD6B25F5B7684ED3C966984BF87",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/suzuki-shunsuke/nllint/v1.2.1/nllint_linux_amd64.tar.gz",
+      "checksum": "2572058F52C9A883D06BF7A25CD3B94E245E703F85A5E8EF2F2110FC1C798989",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/suzuki-shunsuke/nllint/v1.2.1/nllint_linux_arm64.tar.gz",
+      "checksum": "7D7AF975522A068C553D48749756AA06047210AA14322924256EF98FCA2AB0CA",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/suzuki-shunsuke/nllint/v1.2.1/nllint_windows_amd64.zip",
+      "checksum": "7FFD76360135E98EF12A557A819386169630B03F9730D3B87FC57B5ED4335033",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/suzuki-shunsuke/nllint/v1.2.1/nllint_windows_arm64.zip",
+      "checksum": "B9D1B017EDCF1688C94518DAA32E978E1FACE97932D4E555E1743B9D0A79227C",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "registries/github_content/github.com/aquaproj/aqua-registry/v4.579.0/registry.yaml",
+      "checksum": "5BC609335C3E930F66B52E4EF44824852868C88898137557B078570C3CE9DF94",
+      "algorithm": "sha256"
+    }
+  ]
+}
