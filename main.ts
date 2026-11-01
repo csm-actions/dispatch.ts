@@ -1,6 +1,7 @@
 import * as github from "@actions/github";
 import * as core from "@actions/core";
 import * as githubAppToken from "@suzuki-shunsuke/github-app-token";
+import { errorMessage } from "./error_message.ts";
 import {
   parseWorkflowRun,
   type WorkflowRef,
@@ -74,7 +75,7 @@ export const dispatch = async (
     return await createWorkflowDispatch(octokit, ref, inputs.inputs);
   } finally {
     // The request is sent, so the token has done its job either way.
-    await revoke(octokit, token);
+    await revoke(octokit);
   }
 };
 
@@ -87,21 +88,12 @@ export const dispatch = async (
  */
 const revoke = async (
   octokit: ReturnType<typeof github.getOctokit>,
-  token: githubAppToken.Token,
 ): Promise<void> => {
-  if (githubAppToken.hasExpired(token.expiresAt)) {
-    core.info("skip revoking GitHub App token as it has already expired");
-    return;
-  }
   core.info("revoking GitHub App token");
   try {
     await octokit.rest.apps.revokeInstallationAccessToken();
   } catch (error) {
-    core.warning(
-      `failed to revoke GitHub App token: ${
-        error instanceof Error ? error.message : JSON.stringify(error)
-      }`,
-    );
+    core.warning(`failed to revoke GitHub App token: ${errorMessage(error)}`);
   }
 };
 

@@ -6,7 +6,13 @@
   "version": "0.1.0",
   "exports": "./main.ts",
   "publish": {
-    "include": ["LICENSE", "README.md", "main.ts", "workflow_ref.ts"]
+    "include": [
+      "LICENSE",
+      "README.md",
+      "main.ts",
+      "workflow_ref.ts",
+      "error_message.ts"
+    ]
   },
   "imports": {
     "@actions/core": "npm:@actions/core@^3.0.1",
