@@ -54,7 +54,7 @@ Deno.test("parseWorkflowRef", async (t) => {
         "../../.github/workflows/securefix.yaml@main",
         "./server/.github/workflows/securefix.yaml@main",
         "foo/.../.github/workflows/securefix.yaml@main",
-        "fo o/server/.github/workflows/securefix.yaml@main",
+        "my org/server/.github/workflows/securefix.yaml@main",
         "foo/ser%2Fver/.github/workflows/securefix.yaml@main",
       ]
     ) {
